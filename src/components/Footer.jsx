@@ -29,9 +29,9 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl">
         <div
           data-reveal
-          className="mb-16 grid grid-cols-1 gap-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]"
+          className="mb-16 grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-16"
         >
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <p className="font-serif text-3xl text-offwhite">Aether</p>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-offwhite/50">
               A motion &amp; design studio building living interfaces for

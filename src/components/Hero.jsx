@@ -18,7 +18,7 @@ export default function Hero() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-ink"
+      className="relative flex h-dvh w-full items-center justify-center overflow-hidden bg-ink"
     >
       <video
         ref={videoRef}

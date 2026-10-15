@@ -18,6 +18,7 @@ const navLinks = ['Work', 'Studio', 'Journal', 'Contact']
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const panelRef = useRef(null)
 
   function openPanel(name) {
@@ -87,7 +88,49 @@ export default function Navbar() {
         >
           Start a project
         </a>
+
+        <button
+          type="button"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+        >
+          <span
+            className={`h-px w-5 bg-offwhite transition-transform ${mobileOpen ? 'translate-y-[3.5px] rotate-45' : ''}`}
+          />
+          <span
+            className={`h-px w-5 bg-offwhite transition-transform ${mobileOpen ? '-translate-y-[3.5px] -rotate-45' : ''}`}
+          />
+        </button>
       </nav>
+
+      {mobileOpen && (
+        <div className="border-b border-offwhite/10 bg-ink/95 backdrop-blur-md md:hidden">
+          <ul className="flex flex-col gap-1 px-6 py-6 text-sm uppercase tracking-widest text-offwhite/80">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a
+                  href={`#${link.toLowerCase()}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="block border-b border-offwhite/5 py-4 transition-colors hover:text-accent"
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="px-6 pb-8">
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="block rounded-full border border-offwhite/25 px-5 py-3 text-center text-xs uppercase tracking-widest text-offwhite transition-colors hover:border-accent hover:text-accent"
+            >
+              Start a project
+            </a>
+          </div>
+        </div>
+      )}
 
       {activeColumns && (
         <div
